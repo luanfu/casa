@@ -34,9 +34,9 @@ app.post('/cadastro', function(req,res){
     })
     produto.save(function(err){
         if (err) {
-            res.render('index.js', { "msg": err })
+            res.render('index.ejs', { "msg": err })
         } else {
-            res.render('index.js', { "msg": 'Adicionado com sucesso' })
+            res.render('index.ejs', { "msg": 'Adicionado com sucesso' })
         }
     })
 })
