@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin - Loja de roupas</title>
 </head>
+
 <body>
     <h1>Loja de roupas</h1>
     <ul>
@@ -26,7 +28,10 @@
         <input type="number" step='0.01' name="preco" id="" placeholder="Preço">
         <br><br>
         <input type="reset">
-        <input type="submit">        
+        <input type="submit">
     </form>
+    <%if(typeof msg != "undefined"){%>
+    <h1><%=msg%></h1>
+    <%}%>
 </body>
 </html>
