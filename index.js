@@ -18,7 +18,15 @@ app.listen(3000,function(){
 })
 
 app.get('/',function(req,res){
-    res.render('index.ejs',{})
+    Produto.find({}).lean().exec(
+        function(err,docs){
+            if(err){
+                res.render('index.ejs',{"msg": err})    
+            }else{
+                res.render('index.ejs',{"Produtos": docs})
+            }
+        }
+    )
 })
 
 app.get('/cadastro',function(req,res){
@@ -30,7 +38,7 @@ app.post('/cadastro', function(req,res){
         marca:req.body.marca, 
         tipo:req.body.tipo, 
         cor:req.body.cor, 
-        preco:req.body.preco
+        valor:req.body.valor
     })
     produto.save(function(err){
         if (err) {
